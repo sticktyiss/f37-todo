@@ -18,3 +18,26 @@ for (let i=0; i<tasks.length; i++){
     let completed = complete(tasks[i])
     console.log(`${tasks[i]} : ${completed} `)
 }
+
+addTask = task => {
+    tasks.push(task)
+}
+
+addTask('Take out the trash')
+
+console.log(tasks)
+
+delTask = task => {
+    if (tasks.includes(task)===true) {
+        for(let i=0; i<tasks.length; i++) {
+            if (task===tasks[i]) {
+                tasks.splice(i,1)
+            }
+        }
+        console.log('Task was deleted')
+    } else {
+        console.log(`"${task}" was not in the array`)
+    }
+}
+
+delTask('Take out the trash')
