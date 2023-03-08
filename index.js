@@ -1,36 +1,23 @@
-let task1 = 'Sweep floor'
-let task2 = 'Get Groceries'
-let task3 = 'Make dinner'
+let task1 = {name: 'Sweep floor', priority: 'low', status: false}
 
-//write if statement to check if task1 is 'Make dinner'
-//if it is, print completed, if not incomplete
+let task2 = {name: 'Get Groceries', priority: 'med', status: false}
+
+let task3 = {name: 'Make dinner', priority: 'high', status: false}
+
 let tasks = [task1, task2, task3]
-
-function complete(x){
-    if (x==='Make dinner'){
-        return('completed')
-    }else{
-        return('incomplete')
-    }
-}
-
-for (let i=0; i<tasks.length; i++){
-    let completed = complete(tasks[i])
-    console.log(`${tasks[i]} : ${completed} `)
-}
 
 addTask = task => {
     tasks.push(task)
 }
 
-addTask('Take out the trash')
+addTask({name: 'Take out the trash', priority: 'med', status: false})
 
 console.log(tasks)
 
 delTask = task => {
     if (tasks.includes(task)===true) {
         for(let i=0; i<tasks.length; i++) {
-            if (task===tasks[i]) {
+            if (task===tasks[i].name) {
                 tasks.splice(i,1)
             }
         }
@@ -41,3 +28,8 @@ delTask = task => {
 }
 
 delTask('Take out the trash')
+
+for (let i=0; i<tasks.length; i++){
+    let completed = complete(tasks[i])
+    console.log(`${tasks[i]} : ${completed} `)
+}
